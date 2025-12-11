@@ -588,7 +588,7 @@ static int run_server( const char* desired_ip,
     const char default_term[] = "xterm";
     const char color_term[] = "xterm-256color";
 
-    if ( setenv( "TERM", ( colors == 256 ) ? color_term : default_term, true ) < 0 ) {
+    if ( setenv( "TERM", ( colors >= 256 ) ? color_term : default_term, true ) < 0 ) {
       perror( "setenv" );
       exit( 1 );
     }
